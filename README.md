@@ -6,18 +6,26 @@ For simplicity, the bank is not required to connect to a database, so all transa
 
 ## User stories
 
-```As a customer
+```
+As a customer
 So I can keep my money safe
-I need to be able to create a bank account ```
+I need to be able to create a bank account
+```
 
-```As a customer
+```
+As a customer
 So I spend money on things I want to buy
-I need to be able to withdraw money ```
+I need to be able to withdraw money
+```
 
-```As a customer
+```
+As a customer
 So I can save money for future purchases
-I need to be able to deposit money```
+I need to be able to deposit money
+```
 
-```As a customer
+```
+As a customer
 So I can keep track of my financial situation
-I need to be able to see an account statement```
+I need to be able to see an account statement
+```
