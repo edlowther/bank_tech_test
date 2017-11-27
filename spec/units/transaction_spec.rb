@@ -2,7 +2,7 @@ require 'transaction'
 
 describe Transaction do
   date = Date.new(2017,11,27)
-  let(:account_balance) { 2500 }
+  account_balance = 2500
   subject(:transaction) { described_class.new(2000, date, account_balance, :deposit) }
 
   it 'has an amount' do
@@ -23,7 +23,7 @@ describe Transaction do
   end
 
   it 'knows if it is a withdrawal' do
-    deposit = described_class.new(50, date, account_balance, :withdrawal)
-    expect(deposit.type).to eq(:withdrawal)
+    withdrawal = described_class.new(50, date, account_balance, :withdrawal)
+    expect(withdrawal.type).to eq(:withdrawal)
   end
 end
