@@ -14,7 +14,7 @@ I need to be able to create a bank account
 
 ```
 As a customer
-So I spend money on things I want to buy
+So I can spend money on things I want to buy
 I need to be able to withdraw money
 ```
 
