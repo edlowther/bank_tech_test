@@ -13,6 +13,10 @@ describe Account do
     expect(account.balance).to eq 2000
   end
 
+  it 'otherwise defaults to a deposit of zero' do
+    expect(described_class.new.balance).to eq(0)
+  end 
+
   it 'allows withdrawals' do
     expect { account.withdraw(500) }.to change { account.balance }.by(-500)
   end
