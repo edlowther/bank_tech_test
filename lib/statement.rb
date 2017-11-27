@@ -5,7 +5,7 @@ class Statement
 
   def print
     result = "date || credit || debit || balance"
-    @transactions.each do |transaction|
+    @transactions.reverse.each do |transaction|
       result += "\n"
       result += transaction.date.strftime('%d/%m/%Y') + " || "
       if transaction.type == :deposit
