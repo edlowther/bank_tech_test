@@ -4,7 +4,9 @@ describe Account do
   let(:transaction_class) { double(:transaction_class, :new => transaction) }
   let(:transaction) { double(:transaction) }
 
-  subject(:account) { described_class.new(2000, transaction_class) }
+  let(:statement) { double(:statement) }
+
+  subject(:account) { described_class.new(2000, transaction_class, statement) }
 
   it 'can be initialized with a starting deposit' do
     expect(account.balance).to eq 2000
@@ -57,6 +59,12 @@ describe Account do
         expect(account.transactions.last.amount).to eq(deposit_amount)
       end
     end
+
+    it 'delegates printing to statement dependency' do
+      expect(statement).to receive(:print)
+      account.print_statement
+    end 
+
   end
 
 
