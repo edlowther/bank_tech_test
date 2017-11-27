@@ -1,10 +1,18 @@
 require 'statement'
 
 describe Statement do
-  let(:withdrawal_date) { Date.new(2017,5,4) }
-  let(:deposit_date) { Date.new(2017,5,6) }
-  let(:withdrawal) { double(:transaction, :amount => 30, :date => withdrawal_date, :account_balance => 1970, :type => :withdrawal) }
-  let(:deposit) { double(:transaction, :amount => 50, :date => deposit_date, :account_balance => 2020, :type => :deposit) }
+  let(:withdrawal) { double(:transaction,
+    :amount => 30,
+    :date => Date.new(2017,5,4),
+    :account_balance => 1970,
+    :type => :withdrawal)
+  }
+  let(:deposit) { double(:transaction,
+    :amount => 50,
+    :date => Date.new(2017,5,6),
+    :account_balance => 2020,
+    :type => :deposit)
+  }
   let(:transactions) { [withdrawal, deposit] }
   subject(:statement) { described_class.new(transactions) }
 
