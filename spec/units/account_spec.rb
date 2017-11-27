@@ -9,5 +9,9 @@ describe Account do
 
   it 'allows withdrawals' do
     expect { account.withdraw(500) }.to change { account.balance }.by(-500)
-    end
+  end
+
+  it 'enables deposits' do
+    expect { account.deposit(1000) }.to change { account.balance }.by(1000)
+  end
 end

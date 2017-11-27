@@ -7,5 +7,9 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+  end
+
+  def deposit(amount)
+    @balance += amount
   end 
 end
