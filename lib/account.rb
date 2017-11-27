@@ -4,4 +4,8 @@ class Account
   def initialize(starting_balance)
     @balance = starting_balance
   end
+
+  def withdraw(amount)
+    @balance -= amount
+  end 
 end

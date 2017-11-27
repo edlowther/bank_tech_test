@@ -1,8 +1,13 @@
 require 'account'
 
 describe Account do
+  subject(:account) { described_class.new(2000) }
+
   it 'can be initialized with a starting deposit' do
-    account = Account.new(2000)
     expect(account.balance).to eq 2000
   end
+
+  it 'allows withdrawals' do
+    expect { account.withdraw(500) }.to change { account.balance }.by(-500)
+    end
 end
