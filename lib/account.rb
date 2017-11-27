@@ -14,7 +14,8 @@ class Account
     @transactions << @transaction_class.new(amount, date)
   end
 
-  def deposit(amount)
+  def deposit(amount, date=Date.today)
     @balance += amount
+    @transactions << @transaction_class.new(amount, date)
   end
 end

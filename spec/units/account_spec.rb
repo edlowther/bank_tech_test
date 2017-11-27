@@ -18,12 +18,46 @@ describe Account do
     expect { account.deposit(1000) }.to change { account.balance }.by(1000)
   end
 
-  describe 'transaction history' do
-    it 'keeps track of the dates of transactions' do
-      transaction_date = Date.new(2017,3,2)
-      allow(transaction).to receive(:date).and_return(transaction_date)
-      account.withdraw(20, transaction_date)
-      expect(account.transactions.last.date).to eq(transaction_date)
+  context 'transaction history' do
+
+    describe 'withdrawals' do
+      let(:withdrawal_amount) { 20 }
+      let(:withdrawal_date) { Date.new(2017,3,2) }
+
+      before(:each) do
+        allow(transaction).to receive(:date).and_return(withdrawal_date)
+        allow(transaction).to receive(:amount).and_return(withdrawal_amount)
+        account.withdraw(withdrawal_amount, withdrawal_date)
+      end
+
+      it 'keeps track of dates' do
+        expect(account.transactions.last.date).to eq(withdrawal_date)
+      end
+
+      it 'keeps track of amounts' do
+        expect(account.transactions.last.amount).to eq(withdrawal_amount)
+      end
+    end
+
+    describe 'deposits' do
+      let(:deposit_amount) { 50 }
+      let(:deposit_date) { Date.new(2017,8,7) }
+
+      before(:each) do
+        allow(transaction).to receive(:date).and_return(deposit_date)
+        allow(transaction).to receive(:amount).and_return(deposit_amount)
+        account.deposit(deposit_amount, deposit_date)
+      end
+
+      it 'keeps track of dates' do
+        expect(account.transactions.last.date).to eq(deposit_date)
+      end
+
+      it 'keeps track of amounts' do
+        expect(account.transactions.last.amount).to eq(deposit_amount)
+      end
     end
   end
+
+
 end
